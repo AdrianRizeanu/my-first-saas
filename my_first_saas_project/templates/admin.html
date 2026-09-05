@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://jsdelivr.net">
+</head>
+<body>
+    <header style="border-bottom: 1px solid #ff4444; padding-bottom: 1rem; margin-bottom: 2rem;">
+        <h2>🛠️ SaaS Admin Control Panel</h2>
+        <p>System Administrator Access</p>
+    </header>
+
+    <main>
+        <h3>Registered Accounts Database</h3>
+        <p>Below is a live look at all accounts stored inside your SQLite database:</p>
+        
+        <!-- This loop takes the user data from Python and prints it out row by row -->
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Account Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td><code>{{ user[2] }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <br>
+    <footer>
+        <a href="/"><button style="background-color: #ff4444; color: white; border: none;">Log Out</button></a>
+    </footer>
+</body>
+</html>
